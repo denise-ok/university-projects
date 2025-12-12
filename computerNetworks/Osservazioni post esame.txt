@@ -1,0 +1,5 @@
+Osservazioni post esame 
+
+==> Non ho compilato con gcc -o client client.c -Wall per analizzare gli worning
+	(stesso per il server)
+==> End quiz e show score andavano implementati durante domanda/risposta non nel menù
