@@ -198,11 +198,9 @@ CREATE TABLE `FasciaOraria` (
     `Inizio` TIME NOT NULL, 
     `Fine` TIME NOT NULL, 
     `PrezzoRin` FLOAT NOT NULL 
-        CHECK(PrezzoRin > 0) 
-        COMMENT 'Prezzo reimmissione in rete (€/kWh)',
+        CHECK(PrezzoRin > 0),
     `CostoNonRin` FLOAT NOT NULL 
-        CHECK(CostoNonRin > 0) 
-        COMMENT 'Costo prelievo dalla rete (€/kWh)',
+        CHECK(CostoNonRin > 0),
     `SceltaUtilizzo` VARCHAR(50) NOT NULL 
         CHECK(`SceltaUtilizzo` IN ('UtilizzareEnergiaAutoprodotta', 'ReimmettereNellaRete')),
 
@@ -212,8 +210,7 @@ CREATE TABLE `FasciaOraria` (
 CREATE TABLE `Pannello` (
     `IdPannello` INT AUTO_INCREMENT NOT NULL, 
     `Superficie` FLOAT NOT NULL 
-        CHECK(Superficie > 0) 
-        COMMENT 'Superficie in m²',
+        CHECK(Superficie > 0),
 
     PRIMARY KEY (`IdPannello`)
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
@@ -222,11 +219,9 @@ CREATE TABLE `EnergiaProdotta` (
     `IdEnergia` INT AUTO_INCREMENT NOT NULL, 
     `Timestamp` DATETIME NOT NULL,
     `Irraggiamento` FLOAT NOT NULL 
-        CHECK(Irraggiamento >= 0) 
-        COMMENT 'Irraggiamento solare in kW/m²', 
+        CHECK(Irraggiamento >= 0), 
     `Quantita` FLOAT NOT NULL 
-        CHECK(Quantita >= 0) 
-        COMMENT 'Energia prodotta in kWh (calcolata da Irraggiamento × Superficie)',
+        CHECK(Quantita >= 0),
     `IdPannello` INT NOT NULL,
     `IdFascia` INT NOT NULL,
 
@@ -247,11 +242,10 @@ CREATE TABLE `EnergiaProdotta` (
 CREATE TABLE `RegistroTemperatura` (
     `IdRegistroTemperatura` INT AUTO_INCREMENT NOT NULL,
     `Timestamp` DATETIME NOT NULL,
-    `TemperaturaOut` FLOAT NOT NULL COMMENT 'Temperatura esterna in °C',
-    `TemperaturaIn` FLOAT NOT NULL COMMENT 'Temperatura interna in °C',
+    `TemperaturaOut` FLOAT NOT NULL,
+    `TemperaturaIn` FLOAT NOT NULL,
     `Efficienza` FLOAT 
-        CHECK(Efficienza >= 0) 
-        COMMENT 'Coefficiente di efficienza energetica',
+        CHECK(Efficienza >= 0),
     `IdStanza` INT NOT NULL,
 
     PRIMARY KEY (`IdRegistroTemperatura`), 
@@ -285,14 +279,11 @@ CREATE TABLE `Luce` (
 CREATE TABLE `RegolazioneClima` (
     `CodClima` INT AUTO_INCREMENT NOT NULL, 
     `Temperatura` FLOAT NOT NULL 
-        CHECK (Temperatura BETWEEN 10 AND 30) 
-        COMMENT 'Temperatura target in °C',
+        CHECK (Temperatura BETWEEN 10 AND 30),
     `Umidita` FLOAT NOT NULL 
-        CHECK (Umidita BETWEEN 30 AND 70) 
-        COMMENT 'Umidità target in %',
-    `Predefinita` BOOLEAN NOT NULL DEFAULT FALSE 
-        COMMENT 'TRUE se è una configurazione predefinita',
-    `Consumo` FLOAT NOT NULL COMMENT 'Consumo stimato in kW/h',
+        CHECK (Umidita BETWEEN 30 AND 70),
+    `Predefinita` BOOLEAN NOT NULL DEFAULT FALSE,
+    `Consumo` FLOAT NOT NULL,
     `IdCondizionatore` INT NOT NULL,
 
     PRIMARY KEY (`CodClima`), 
@@ -317,29 +308,25 @@ CREATE TABLE `RegolazioneIlluminazione` (
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 
 CREATE TABLE `Schedule` (
-    `IdSchedule` INT AUTO_INCREMENT NOT NULL,
-    `Durata` INT NOT NULL 
-        CHECK (Durata BETWEEN 1 AND 24) 
-        COMMENT 'Durata in ore',
-    `PeriodoRipetizione` INT 
-        COMMENT 'Periodo di ripetizione in ore (opzionale)',
-    `CodClima` INT NOT NULL, 
+  `IdSchedule` INT AUTO_INCREMENT NOT NULL,
+  `Durata` INT NOT NULL CHECK (`Durata` BETWEEN 1 AND 24),
+  `PeriodoRipetizione` INT,
+  `CodClima` INT NOT NULL,
 
-    PRIMARY KEY (`IdSchedule`), 
-    FOREIGN KEY (`CodClima`) 
-        REFERENCES `RegolazioneClima`(`CodClima`) 
-        ON DELETE CASCADE
-) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+  PRIMARY KEY (`IdSchedule`),
+  FOREIGN KEY (`CodClima`)
+    REFERENCES `RegolazioneClima`(`CodClima`)
+    ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 CREATE TABLE `Interazione` (
     `IdInterazione` INT AUTO_INCREMENT NOT NULL,
-    `Inizio` TIMESTAMP NOT NULL,
-    `Fine` TIMESTAMP NOT NULL,
-    `ComandoVocale` BOOLEAN NOT NULL DEFAULT FALSE 
-        COMMENT 'TRUE se comando vocale, FALSE altrimenti',
-    `EnergiaConsumata` FLOAT 
-        CHECK(EnergiaConsumata >= 0) 
-        COMMENT 'Energia consumata in kWh (ridondanza calcolata)',
+    `Inizio` datetime NOT NULL,
+    `Fine` datetime NOT NULL,
+    `ComandoVocale` BOOLEAN NOT NULL DEFAULT FALSE,
+   `EnergiaConsumata` FLOAT NOT NULL CHECK (`EnergiaConsumata` >= 0),
+
     `IdFascia` INT,
     `NomeUtente` VARCHAR(50) NOT NULL,
     `IdSchedule` INT, 
