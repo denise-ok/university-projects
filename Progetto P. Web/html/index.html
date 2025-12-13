@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>2048 - Login</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../css/index.css">
+
+        <!-- JavaScript -->
+        <script src="../js/index.js"></script>
+    </head>
+
+    <body onload="init()">
+        <div class="container">
+            <div class="box">
+                <h1>2048</h1>
+                <h2>Login</h2>
+                
+                <form method="post" action = "../php/index.php">
+                    <div class="input">
+                        <label for="username">Username</label><input type="text" name="username" id="username" required>
+                    </div>
+                    <div class="input">
+                        <label for="password">Password</label><input type="password" name="password" id="password" required>
+                    </div>
+                    <div class="button">
+                        <button type="submit" class="button_login" name="login" id="submit">Login</button>
+                    </div>
+                    <div id="log_error"></div>
+                    <div class="registrazione">
+                        Non hai un account? <a href="./registrazione.html">Registrati</a> <br><br>
+                        <a href="./istruzioni.html">MANUALE</a>
+                    </div>
+             </form> 
+            
+            </div>
+
+        </div>
+    </body>
+
+</html>

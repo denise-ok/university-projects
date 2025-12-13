@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>2048</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/game.css">
+        <script src="../js/game.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="titolo">2048</h1>
+            
+            <div class="score-container">
+                <div class="score-box">
+                    <label for="score">SCORE</label>
+                    <div id="score">0</div>
+                </div>
+                <div class="score-box">
+                    <label for="best-score">BEST SCORE</label>
+                    <div id="best-score">0</div>
+                </div>
+            </div>
+
+            <div class="game"> 
+                <div class="griglia-esterna">
+                    <div class="riga">
+                        <div class="colonna"></div>
+                        <div class="colonna"></div>
+                        <div class="colonna"></div>
+                        <div class="colonna"></div>
+                    </div>
+                    <div class="riga">
+                        <div class="colonna"></div>
+                        <div class="colonna"></div>
+                        <div class="colonna"></div>
+                        <div class="colonna"></div>
+                    </div>
+                    <div class="riga">
+                        <div class="colonna"></div>
+                        <div class="colonna"></div>
+                        <div class="colonna"></div>
+                        <div class="colonna"></div>
+                    </div>
+                    <div class="riga">
+                        <div class="colonna"></div>
+                        <div class="colonna"></div>
+                        <div class="colonna"></div>
+                        <div class="colonna"></div>
+                    </div>
+                </div>
+                <div class="tessera" id="tessera"></div>
+
+                <div class="game-over" id="game-over">
+                    <h2>Game Over!</h2>
+                    <h3>Classifica</h3>
+                    <button class="btn" onclick="restartGame()">Riprova</button>
+                    <button class="btn" onclick="logout()">Logout</button>
+                </div>
+                <div class="game-won" id="game-won">
+                    <h2>Game Won!</h2>
+                    <h3>Classifica</h3>
+                    <button class="btn" onclick="restartGame()">Nuova Partita</button>
+                    <button class="btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="btn" onclick="restartGame()">Nuova Partita</button>
+                <button class="btn" onclick="saveScore()">Salva Punteggio</button>
+            </div>
+        </div>
+    </body>
+</html>

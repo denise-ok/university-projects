@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head lang="it">
+        <title>2048-manuale</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/istruzioni.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="box">
+                <h1>MANUALE  2048</h1>
+                <p>Dalla pagina di login (<a href="./index.html">index.html</a>) posso effettuare tre azioni: <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; 1=> inserire username e password di un account esistente e accedere alla pagina di gioco; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; 2=> registrarsi per creare un nuovo account (premendo su Registrati in basso che mi porta alla pagina di registrazione <a href="./registrazione.html">registrazione.html</a>); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; 3=> accedere al manuale per capire il funzionamento del gioco.<br>
+                    Nel caso in cui usernamene e password vengano inseriti sbagliati, si segnala l'errore.<br>
+                    <br><br>
+                    In fase di registrazione viene chiesto di inserire un username e una password sicura composta da almeno 8 caratteri. Tra questi deve essere presente almeno una maiuscola, una minuscola, un numero e un carattere speciale.<br>
+                    La password deve essere ripetuta due volte e viene segnalato errore nel caso in cui le due versioni non coincidano.<br>
+                    Viene segnalato l'errore anche nel caso in cui l'utente cerchi di registrarsi con un username gia' registrato.<br>
+                    <br>
+                    Dopo aver inserito username e password corretti, l'utente puo' accedere alla pagina di gioco sia nel caso un cui l'utente effettui il login (poiche' gia' registrato precedentemente), sia nel caso in cui si registri.<br>
+                    <br>
+                    A questo punto il gioco 2048 parte automaticamente nel momento in cui premo una delle freccette direzionali. Per muovere le tessere devono essere utilizzate le quattro frecce direzionali. Nel caso in cui si arrivi ad avere 
+                    due tessere adicenti con lo stesso numero, queste si sommano in una sola.<br>
+                    Lo scopo del gioco e' quello di unire due tessere uguali fino ad arrivare ad averne una con scritto 2048. Questo e' l'unico caso di vittoria del gioco. <br>
+                    In tutti gli altri casi la partita e' persa e verra' salvato il miglior punteggio ottenuto dall'utente (considerando tutte le partite che ha giocato fino a quel momento).<br>
+                    In ogni momento del gioco e' possibile anche decidere di iniziare una nuova partita, oppure di salvare il punteggio. Quest'ultimo verra' salvato effettivamente solo se migliore del bestScore attuale dell'utente.<br>
+                    Alla fine, quando appare la schermata con game-over (in caso di perdita) oppure con game-won (in caso di vincita), e' presente una classifica stimata sulla base dei bestScore ottenuti dagli utenti.<br>
+                    La classifica si aggiorna automaticamente dal momento che vengono sempre presi in considerazione i 10 utenti con maggior bestScore.<br><br>
+                    Infine sono presenti due bottoni: un bottone che riporta alla pagina di gioco ("Nuova Partita") e un altro per effettuare il logout.
+                </p>
+            </div>
+
+        </div>   
+
+    </body>
+</html>

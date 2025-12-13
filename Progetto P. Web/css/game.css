@@ -1,0 +1,213 @@
+body{
+    font-family: 'Arial', sans-serif;
+    background-color: rgba(255, 255, 255, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #776e65;
+}
+.container{
+    text-align: center;
+    display: table-row;
+    padding: 30px;
+    
+}
+h1{
+    font-size: 48px;
+     color: #776e65;
+     margin-bottom: 10px;
+     margin-top: 5px;
+}
+.score-container{
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.score-box{
+    display: table-cell;
+    background-color: #d8cdc1;
+    font-weight: bold;
+    padding:  10px 20px;
+    border-radius: 8px;
+    
+}
+.game{
+    background-color: #bbada0;
+    border-radius: 10px;
+    width: 310px;
+    height: 310px;
+    margin: 0 auto 20px;
+    padding: 10px;
+}
+.griglia-esterna {
+    position: absolute;
+    z-index: 1;
+   
+}
+.riga{
+    display: flex;
+    margin-bottom: 10px;
+}
+.riga:last-child{
+    margin-bottom: 0px;
+}
+.colonna{
+    width: 70px;              
+    height: 70px;
+    background-color: rgba(238, 228, 218, 0.35);  
+    border-radius: 6px;
+    margin-right: 10px;
+
+}
+.colonna:last-child{
+    margin-right: 0;
+}
+.tessera {
+    position: absolute;
+    z-index: 2;
+}
+
+.controls{
+    margin-top: 20px;
+}
+.btn{
+    background-color: #8f7a66;
+    color: #f9f6f2;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    transition: background 0.3s ease;
+
+}
+.btn:hover {
+    background: #9f8a76;
+}
+
+
+.game-over, .game-won{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    border-radius: 10px;
+    z-index: 100;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.game-over h2, .game-won h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.game-over h2 { 
+    color: #f65e3b; 
+}
+.game-won h2 { 
+    color: #edc22e; 
+}
+
+
+
+.game-over h3, .game-won h3 {
+    font-size: 20px;
+    color: #776e65;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+
+.leaderboard {
+    margin-bottom: 20px;
+    width: 280px;
+}
+
+.classifica-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: #faf8ef;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(119, 110, 101, 0.3);
+    border: 2px solid #bbada0;
+}
+
+.classifica-table th {
+    background-color: #bbada0;
+    color: #f9f6f2;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.classifica-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #d8cdc1;
+    color: #776e65;
+    font-weight: 500;
+}
+
+.classifica-table tr:nth-child(even) {
+    background-color: #eee4da;
+}
+
+.classifica-table tr:nth-child(odd) {
+    background-color: #faf8ef;
+}
+
+
+.classifica-table th:first-child,
+.classifica-table td:first-child {
+    text-align: left;
+}
+
+.classifica-table th:last-child,
+.classifica-table td:last-child {
+    text-align: right;
+    font-weight: bold;
+}
+
+
+.classifica-table tr:last-child td {
+    border-bottom: none;
+}
+
+.tile {
+   width: 70px;
+    height: 70px;
+    background: #eee4da;
+    border-radius: 6px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    position: absolute;
+    transition: transform 0.2s ease-in-out;
+           
+       
+}
+  
+.tile-2 { background: #eee4da; color: #776e65; }
+.tile-4 { background: #ede0c8; color: #776e65; }
+.tile-8 { background: #f2b179; color: #f9f6f2; }
+.tile-16 { background: #f59563; color: #f9f6f2; }
+.tile-32 { background: #f67c5f; color: #f9f6f2; }
+.tile-64 { background: #f65e3b; color: #f9f6f2; }
+.tile-128 { background: #edcf72; color: #f9f6f2; font-size: 20px; }
+.tile-256 { background: #edcc61; color: #f9f6f2; font-size: 20px; }
+.tile-512 { background: #edc850; color: #f9f6f2; font-size: 20px; }
+.tile-1024 { background: #edc53f; color: #f9f6f2; font-size: 18px; }
+.tile-2048 { background: #edc22e; color: #f9f6f2; font-size: 18px; box-shadow: 0 0 20px rgba(237, 194, 46, 0.5); }

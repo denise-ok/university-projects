@@ -1,0 +1,145 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    
+}
+
+body {
+    background-image: url("../sfondo/Screenshot\ 2025-08-29\ 152428.png"); 
+    background-size: cover;        
+    background-repeat: repeat;  
+    background-position: center;   
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(238, 228, 218, 0.85);
+    opacity: 0.9;
+    z-index: 0;
+}
+
+.container {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.box {
+    position: absolute;  
+    border-radius: 20px;
+    width: 500px;
+    min-height: 500px;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    
+    left: 50%;
+    top: 52%;  
+    transform: translate(-50%, -50%);
+
+   
+    background-color: #bbada0; 
+    color: #f9f6f2;
+    box-shadow: 0 8px 20px rgba(187, 173, 160, 0.4);
+    border: 1px solid rgba(216, 205, 193, 0.3);
+}
+
+h1 {
+   text-align: center;
+   font-size: 3rem;
+   margin: 0;
+   color: #776e65;
+   font-weight: bold;
+   text-shadow: 2px 2px 4px rgba(119, 110, 101, 0.1);
+}
+
+h2 {
+  text-align: left;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #776e65; 
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 1rem;
+  color: #776e65;
+  font-weight: bold;
+}
+
+.input input {
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #d8cdc1;
+  font-size: 1.1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: #eee4da;
+  color: #776e65;
+  font-weight: bold;
+}
+
+.input input:focus {
+  border-color: #8f7a66;
+  box-shadow: 0 0 8px rgba(143, 122, 102, 0.3);
+  background-color: #f9f6f2;
+}
+
+.button_login {
+  padding: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  background-color: #8f7a66;
+  color: #f9f6f2;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(143, 122, 102, 0.3);
+}
+
+.button_login:hover {
+  background-color: #9f8a76;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(159, 138, 118, 0.4);
+}
+
+
+.registrazione {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: 10px;
+  color: #776e65;
+}
+
+.registrazione a {
+  color: #8f7a66;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.registrazione a:hover {
+  text-decoration: underline;
+  color: #9f8a76;
+}
+
